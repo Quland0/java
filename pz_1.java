@@ -7,7 +7,7 @@
 		System.out.print("сле себя строчку не переводит");
 	}
 }*/
-class PZ{
+class pz_1{
     public static void main(String[] args){
         System.out.print("Hello world!");
     }
