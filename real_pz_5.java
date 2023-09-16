@@ -42,7 +42,7 @@ public class Main{
 
 
 
-        System.out.println("введите числа через пробел: ");
+        System.out.println("введите числа через enter: ");
         for(int i = 0; i<n; i++) {
                 
                 arr[i] = userinput.nextInt();
@@ -51,11 +51,11 @@ public class Main{
         for(int i = 0; i<n; i++) {
             if(i % 2 == 0){
                 
-                System.out.println(arr[i]);
+                System.out.println("числа, которые мы складываем: " + arr[i]);
                 evenSum +=arr[i];
             }    
         }
-        System.out.println(evenSum);
+        System.out.println("сумма чисел с четным индексом: " + evenSum);
         
     }
 	
