@@ -1,0 +1,197 @@
+1.
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+
+    int n = sc.nextInt();
+    sc.nextLine();
+
+    String[] strings = new String[n];
+
+
+        for (int i = 0; i < n; i++) {
+            strings[i] = sc.nextLine();
+        }
+
+    String delimiter = sc.nextLine();
+
+
+    String result = String.join(delimiter, strings);
+
+    System.out.println(result);
+}
+}
+
+2.
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String numStr = sc.nextLine();
+    int numTF = sc.nextInt();
+    String[] numbers = numStr.split(" ");
+
+int firstIndex = -1;
+int lastIndex = -1;
+    for (int i = 0; i < numbers.length; i++) {
+        int currentNumber = Integer.parseInt(numbers[i]);
+        if (currentNumber == numTF) {
+            if (firstIndex == -1) {
+                firstIndex = i;
+                }
+        lastIndex = i;
+    }
+}
+
+System.out.println("Индекс первого вхождения: " + firstIndex);
+System.out.println("Индекс последнего вхождения: " + lastIndex);
+}
+}
+3.
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+
+
+char mashaLetter = sc.nextLine().charAt(0);
+
+char olegLetter = sc.nextLine().charAt(0);
+
+
+String wordsString = sc.nextLine();
+
+
+String[] words = wordsString.split(" ");
+
+
+int mashaWordsCount = 0;
+int olegWordsCount = 0;
+
+for (String word : words) {
+
+    String normalizedWord = word.toLowerCase();
+    if (normalizedWord.charAt(0) == Character.toLowerCase(mashaLetter) &&
+    normalizedWord.charAt(normalizedWord.length() - 1) == Character.toLowerCase(olegLetter)) {
+    
+    mashaWordsCount++;
+}
+
+    if (normalizedWord.charAt(0) == Character.toLowerCase(olegLetter) &&
+    normalizedWord.charAt(normalizedWord.length() - 1) == Character.toLowerCase(mashaLetter)) {
+        olegWordsCount++;
+}
+}
+
+
+System.out.println("Количество слов Маши: " + mashaWordsCount);
+System.out.println("Количество слов Олега: " + olegWordsCount);
+}
+}
+
+4.
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+
+String ipAddress = sc.nextLine();
+
+String[] parts = ipAddress.split("\\.");
+
+if (parts.length != 4) {
+    System.out.println("NO");
+    return;
+}
+
+
+for (String part : parts) {
+
+    if (!part.matches("[0-9]+") || part.length() > 3) {
+        System.out.println("NO");
+        return;
+        }
+
+int number = Integer.parseInt(part);
+    if (number < 0 || number > 255) {
+        System.out.println("NO");
+        return;
+        }
+}
+
+System.out.println("YES");
+}
+}
+
+5.
+
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+
+Scanner sc = new Scanner(System.in);
+
+int n = sc.nextInt();
+sc.nextLine();
+
+
+HashMap<String, String> replacements = new HashMap<>();
+
+
+for (int i = 0; i < n; i++) {
+    String line = sc.nextLine();
+    String[] words = line.split(" ");
+
+    if (words.length == 3 && words[1].equals("-")) {
+        replacements.put(words[0], words[2]);
+        }
+}
+
+
+int m = sc.nextInt();
+sc.nextLine();
+
+
+for (int i = 0; i < m; i++) {
+    String line = sc.nextLine();
+    String[] products = line.split(" - ");
+
+
+for (int j = 0; j < products.length; j++) {
+    String product = products[j];
+
+
+if (replacements.containsKey(product)) {
+
+    if (Character.isUpperCase(product.charAt(0))) {
+        System.out.print(Character.toUpperCase(replacements.get(product).charAt(0)));
+        System.out.print(replacements.get(product).substring(1));
+    } 
+    else {
+    System.out.print(replacements.get(product));
+}
+}
+else {
+    System.out.print(product);
+}
+
+
+if (j < products.length - 1) {
+    System.out.print(" ");
+}
+}
+
+
+System.out.println();
+}
+}
+}
